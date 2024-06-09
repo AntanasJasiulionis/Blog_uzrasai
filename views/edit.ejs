@@ -1,0 +1,22 @@
+<%- include("./partials/header.ejs") %>
+<div class="home"><a href="/"><img src="../../assets/home.png"></a><a class="paragraph">Į pagrindinį</a></div>
+<!--User login, logout-->
+<div class="login-logout">
+    <% if(locals.loggedIn){%>
+        <div>Sveiki <span><%= user.name %></span>, <a href="/logout">Atsijungti <img alt="logout" src="../../assets/logout.png"/></a></div>
+    <%} else {%>
+        <div><a href="/login">Prisijunkite <img alt="login" src="../../assets/login.png"/></a></div>
+    <%}%>
+</div>
+<h1 class="title">Pakeisti užrašą</h1>
+<div class="create_post edit">
+    <form action="/post/<%= post.id %>/update?_method=PUT" method="POST">
+        <label class="paragraph">Antraštė</label>
+        <input class="input" maxlength="100" type="text" placeholder="Nėra antraštės" name="title_edit" value="<%= post.title %>" autofocus autocomplete="off">
+        <label class="paragraph">Aprašymas</label>
+        <textarea class="input" maxlength="4000" type="text" placeholder="Nėra aprašymo" name="description_edit" autocomplete="off"><%= post.description  %></textarea>
+        <a>Paršytą simbolių: <%= post.title.length %> </a><a>| Liko: <%= (100 - post.title.length) %> simbolių</a><br/>
+        <input class="button" type="submit" value="Išsaugoti">
+    </form>
+</div>
+<%- include("./partials/footer.ejs") %>

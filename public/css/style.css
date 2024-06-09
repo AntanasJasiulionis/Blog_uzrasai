@@ -1,0 +1,576 @@
+@font-face {
+    font-family: "System";
+    src: url(../fonts/Blogger_Sans.otf);
+}
+@font-face {
+    font-family: "System-bold";
+    src: url(../fonts/Blogger_Sans-Bold.otf);
+}
+@font-face {
+    font-family: "Text";
+    src: url(../fonts/Crimson-Roman.otf);
+}
+@font-face {
+    font-family: "Text-bold";
+    src: url(../fonts/Crimson-Bold.otf);
+}
+/*Set system font for elements*/
+.title, #important-message span, .login-logout span {
+    font-family: "System-bold", cursive;
+}
+.button, .paragraph, .button_edit, .button_delete, .confirmation_box button, #important-message, .login-logout, #back-to-login a {
+    font-family: "System", cursive;
+}
+.posts ul li a, .review h1, .confirmation_box span, .created-name-date span, #signup-message span, .login .login-check span {
+    font-family: "Tex-bold", cursive;
+}
+.create_post .input, .review p, .confirmation_box, .create_post a, footer, .created-name-date, .signup form input[name="name"], .signup form input[name="password"], #signup-message, .login .login-check {
+    font-family: "Text", cursive;
+}
+* {
+    margin:0px;
+    padding:0px;
+}
+h1, p, label, footer, button, ul, li, .create_post a {
+    user-select: none;
+}
+.background {
+    background-image: url("../assets/background.jpg");
+    background-color: lightblue;
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+}
+/* Setup pages height*/
+.posts {
+    min-height: calc(100vh - 331px);
+}
+.create_post {
+    min-height: calc(100vh - 281px);
+    padding-top: 50px;
+    padding-left: 50px;
+}
+.edit {
+    min-height: calc(100vh - 281px);
+}
+.review {
+    min-height: calc(100vh - 60px - 100px);
+    word-wrap: break-word;
+}
+.error_404 {
+    min-height: calc(100vh - 281px);
+    padding-left: 50px;
+    padding-top: 50px;
+}
+.login {
+    min-height: calc(100vh - 281px);
+    padding-top: 50px;
+}
+.title {
+    text-align: center;
+    font-size: 4rem;
+    letter-spacing: calc(4rem / 16);
+    text-shadow: 2px 3px #C9DDDE;
+    color: #000;
+    margin-top: 50px;
+  }
+.posts {
+    padding-left: 50px;
+    padding-top: 100px;
+}
+.posts ul {
+    list-style: none;
+}
+.posts ul li {
+    margin-bottom: 30px;
+}
+.posts ul li a{
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: #000;
+    letter-spacing: calc(4rem / 16);
+    box-shadow: 0 2px #C9DDDE;
+    transition: color 0.5s, text-shadow 0.5s, font-weight 0.2s;
+}
+.li_active {
+    color: #425EB6 !important;
+    text-shadow: 2px 2px #C9DDDE !important;
+    font-weight: bold !important;
+    transition: color 0.5s, text-shadow 0.5s, font-weight 0.2s;
+}
+.button {
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid #C9DDDE;
+    background-color: #fff;
+    font-size: 1.5rem;
+    transition: background-color 0.5s, color 0.5s;
+}
+.button_active {
+    background-color: #425EB6 !important;
+    color:#C9DDDE;
+    transition: background-color 0.5s, color 0.5s;
+}
+footer {
+    display: flex;
+    letter-spacing: calc(1rem / 16);
+    justify-content: center;
+    align-items: center;
+    background-color: #C9DDDE66;
+    height: 50px;
+    margin-top: 50px;
+}
+.create_post label {
+    display: block;
+    margin-bottom: 5px;
+}
+.create_post .input {
+    width: calc(100% - 50px);
+    border: 3px solid #C9DDDE;
+    border-radius: 5px;
+    padding-left: 10px;
+    outline: none;
+    resize: none;
+    display: block;
+    font-size: 1.5rem;
+    letter-spacing: calc(1.5rem / 16);
+}
+.create_post .input::selection {
+    color: #fff;
+    background: #425EB6;
+  }
+.create_post input[name="title"]{
+    height:50px;
+    transition: border 0.5s;
+}
+.create_post textarea[name="description"]{
+    height: 400px;
+    padding-top: 5px;
+    transition: border 0.5s;
+}
+.create_post textarea[name="description"]::-webkit-scrollbar {
+    width: 0;
+}
+.create_post input[name="title"]:focus, .create_post textarea[name="description"]:focus {
+    border: 3px solid #425EB6;
+    transition: border 0.5s;
+}
+.paragraph {
+    letter-spacing: calc(2rem / 16);
+    font-size: 2rem;
+    transition: color 0.5s, text-shadow 0.5s, font-weight 0.2s;
+}
+.home {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 250px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.home img {
+    height: 50px;
+    padding-right: 5px;
+}
+.review h1 {
+    text-align: center;
+    font-size: 4rem;
+    letter-spacing: calc(4rem / 16);
+    text-shadow: 2px 3px #C9DDDE;
+    color: #000;
+    margin: 60px 50px 0 50px;
+    padding-bottom: 80px;
+    background-color: #FFFFFFCC;
+  }
+  .review p {
+    min-height: calc(100vh - 420px - 30px);
+    white-space: pre-line;
+    margin: 0 50px;
+    padding-left: 10px;
+    font-size: 2rem;
+    letter-spacing: calc(2rem / 16);
+    padding-bottom: 20px;
+    background-color: #FFFFFFCC;
+}
+.button_edit {
+    width: 110px;
+    margin-top: 10px;
+    margin-left: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid #C9DDDE;
+    background-color: #fff;
+    font-size: 1.5rem;
+    transition: background-color 0.5s, color 0.5s;
+}
+.button_delete {
+    width: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid #C9DDDE;
+    background-color: #fff;
+    font-size: 1.5rem;
+    transition: background-color 0.5s, color 0.5s;
+}
+.button_delete_active {
+    background-color: #CB3939 !important;
+    color:#C9DDDE;
+    transition: background-color 0.5s, color 0.5s;
+}
+.create_post input[name="title_edit"]{
+    height: 50px;
+}
+.create_post textarea[name="description_edit"]{
+    height: 400px;
+    padding-top: 5px;
+}
+.create_post textarea[name="description_edit"]::-webkit-scrollbar {
+    width: 0;
+}
+.create_post input[name="title_edit"]:focus, .create_post textarea[name="description_edit"]:focus {
+    border: 3px solid #425EB6;
+    transition: border 0.5s;
+}
+.confirmation_box {
+    display: none;
+    height: 200px;
+    width: 600px;
+    border: 3px solid #C9DDDE;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 100px));
+    z-index: 1;
+    text-align: center;
+    font-size: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    letter-spacing: calc(2rem/ 16);
+    transition: display 0.5s;
+}
+.confirmation_box span {
+    display: block;
+}
+.confirmation_box button {
+    margin-top: 50px;
+    height: 40px;
+    width: 100px;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    background-color: #fff;
+    transition: background-color 0.5s, color 0.5s;
+}
+.confirmation_box_yes {
+    border:3px solid #CB3939;
+}
+.confirmation_box_no {
+    border:3px solid #425EB6;
+}
+.create_post a {
+    letter-spacing: calc(1rem / 16);
+}
+#important-message {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    padding: 10px 5px;
+    position: fixed;
+    top: 5px;
+    left: 15px;
+    z-index: 2;
+    border: 3px solid #C9DDDE;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    letter-spacing: calc(1.5rem / 16);
+}
+#important-message img {
+    height: 30px;
+    width: 30px;
+}
+#important-message img:hover {
+    cursor: pointer;
+}
+.created-name-date {
+    margin-top: 5px;
+    color: #425EB6;
+    letter-spacing: calc(1.5rem / 16);
+    font-size: 1rem;
+}
+.review .created-name-date  {
+    margin-left: 50px;
+}
+.login-logout {
+    user-select: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+    letter-spacing: calc(2rem / 16);
+}
+.login-logout img {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 6px;
+}
+.login-logout a {
+    text-decoration: none;
+    color: #425EB6;
+    transition: font-weight 0.5s;
+}
+.login-logout a:hover {
+    font-weight: bold;
+    transition: font-weight 0.5s;
+}
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+.signup form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+.signup a {
+    position: absolute;
+    bottom: 0;
+}
+.signup form input[name="name"], .signup form input[name="password"] {
+    border: 3px solid #C9DDDE;
+    border-radius: 5px;
+    padding: 5px 10px;
+    outline: none;
+    resize: none;
+    display: block;
+    font-size: 1.5rem;
+    height: 30px;
+    letter-spacing: calc(1.5rem / 16);
+    transition: border 0.5s;
+}
+.signup .password-input {
+    position:relative;
+}
+.signup .password-input input {
+    width: calc(100% - 50px - 16px);
+    padding: 5px 50px 5px 10px !important;
+}
+.signup .password-input img {
+    -webkit-user-drag: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 1px;
+    top: -2px;
+}
+.signup form input[name="name"]:focus, .signup form input[name="password"]:focus {
+    border: 3px solid #425EB6;
+    transition: border 0.5s;
+}
+.login .error {
+    user-select: none;
+    visibility: visible;
+    color: #CB3939;
+    font-size: 1.5rem;
+    height: 27px;
+}
+.login .login-button {
+    width: 156px;
+    margin-top: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 5px solid #C9DDDE;
+    background-color: #fff;
+    font-size: 1.5rem;
+    transition: background-color 0.5s, color 0.5s;
+}
+.login .login-button:hover {
+    cursor: pointer;
+    background-color: #425EB6 !important;
+    color:#C9DDDE;
+    transition: background-color 0.5s, color 0.5s;
+}
+#signup-message {
+    margin: 15px 15px 0 15px;
+    padding: 5px;
+    border: 3px solid #C9DDDE;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    letter-spacing: calc(1.5rem / 16);
+    text-align: center;
+}
+#signup-message span {
+    user-select: text;
+}
+.login .login-check {
+    font-size: 2.5rem;
+    letter-spacing: calc(2.5rem / 16);
+    margin-left: 15px;
+}
+#back-to-login {
+    text-align: center;
+    margin-top: 20px;
+}
+#back-to-login a {
+    font-size: 1.5rem;
+    letter-spacing: calc(1.5rem / 16);
+    text-decoration: none;
+    color: #425EB6;
+    transition: font-weigth 0.5s;
+}
+#back-to-login a:hover {
+    font-weight: bold;
+    transition: font-weigth 0.5s;
+}
+@media (max-width: 655px) {
+    .posts {
+        min-height: calc(100vh - 270.4px);
+        padding-left: 15px;
+    }
+    .review {
+        min-height: calc(100vh - 80px - 70px);
+    }
+    .create_post {
+        padding-left: 15px;
+    }
+    .login {
+        min-height: calc(100vh - 190.4px);
+    }
+    .create_post .input {
+        width: calc(100% - 30px);
+    }
+    .error_404 {
+        min-height: calc(100vh - 220.4px);
+    }
+    .title {
+        font-size: 2.5rem;
+        letter-spacing: calc(2.5rem / 16);
+    }
+    .review h1 {
+        font-size: 2.5rem;
+        letter-spacing: calc(2.5rem / 16);
+        margin: 80px 15px 0 15px;
+        padding-bottom: 40px;
+    }
+    .login-logout {
+        top: 5px;
+        right: 5px;
+        font-size: 1.5rem;
+        letter-spacing: calc(1.5rem / 16);
+    }
+    .login-logout img {
+        width: 25px;
+        height: 25px;
+    }
+    .login {
+        padding-top: 20px;
+    }
+    .posts ul li a {
+        font-size: 2rem;
+    }
+    .paragraph {
+        font-size: 1.5rem;
+        letter-spacing: calc(1.5rem / 16);
+    }
+    .review p {
+        font-size: 1.5rem;
+        letter-spacing: calc(1.5rem / 16);
+        margin: 0 15px;
+    }
+    .review .created-name-date {
+        margin-left: 15px;
+    }
+    .button {
+        margin-top: 20px;
+        font-size: 1rem;
+    }
+    .confirmation_box {
+        width: 400px;
+    }
+    .confirmation_box button {
+        margin-top: 20px;
+    }
+    footer {
+        margin-top: 20px;
+    }
+    .button_edit {
+        margin-left: 15px;
+        font-size: 1rem;
+    }
+    .button_delete {
+        font-size: 1rem;
+    }
+    #important-message {
+        font-size: 1rem;
+    }
+    .login .login-button {
+        font-size: 1rem;
+        align-self: center;
+        margin-top: 20px;
+        
+    }
+    input[value="Prisijungti"] {
+        margin-right: 170px;
+    }
+    .signup a {
+        left: 50%;
+    }
+    .signup button {
+        width: 20px;
+    }
+        #signup-message {
+            font-size: 1rem;
+    }
+    .home a.paragraph{
+        display: none;
+    }
+}
+@media (max-width: 387px) {
+    .home a.paragraph{
+        display: none;
+    }
+    .confirmation_box {
+        width: calc(100% - 10px);
+        padding-left: 5px;
+        font-size: 1.5rem;
+    }
+    .create_post .input {
+        font-size: 1rem;
+        letter-spacing: calc(1rem / 16);
+    }
+    .error_404 {
+        min-height: calc(100vh - 210px);
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .posts ul li a {
+        font-size: 1.5rem;
+    }
+    .signup form {
+        width: 100%;
+    }
+    input[value="Prisijungti"] {
+        margin-right: 0;
+    }
+    .signup a {
+        left: auto;
+        bottom: -50px;
+    }
+    #signup-message {
+        margin-top: 60px;
+    }
+    .login {
+        min-height: calc(100vh - 180px);
+    }
+}

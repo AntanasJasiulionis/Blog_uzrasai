@@ -1,0 +1,22 @@
+<%- include("./partials/header.ejs") %>
+<!--User login, logout-->
+<div class="login-logout">
+    <% if(locals.loggedIn){%>
+        <div>Sveiki <span><%= user.name %></span>, <a href="/logout">Atsijungti <img alt="logout" src="../../assets/logout.png"/></a></div>
+    <%} else {%>
+        <div><a href="/login">Prisijunkite <img alt="login" src="../../assets/login.png"/></a></div>
+    <%}%>
+</div>
+<div class="home"><a href="/"><img src="./assets/home.png"></a><a class="paragraph">Į pagrindinį</a></div>
+<h1 class="title">Sukurti užrašą</h1>
+<div class="create_post">
+    <form action="/create" method="POST">
+        <label class="paragraph">Antraštė</label>
+        <input class="input" maxlength="100" type="text" placeholder="Nėra antraštės" name="title" autofocus autocomplete="off" spellcheck="false">
+        <label class="paragraph">Aprašymas</label>
+        <textarea class="input" maxlength="4000" type="text" placeholder="Nėra aprašymo" name="description" autocomplete="off"></textarea>
+        <a>Paršytą simbolių: 0 </a><a>| Liko: 100 simbolių</a><br/>
+        <input class="button" type="submit" value="Sukurti">
+    </form>
+</div>
+<%- include("./partials/footer.ejs") %>

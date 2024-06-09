@@ -1,0 +1,44 @@
+<%- include("./partials/header.ejs") %>
+<div class="home"><a href="/"><img src="../../assets/home.png"></a><a class="paragraph">Į pagrindinį</a></div>
+    <!--User login, logout-->
+    <div class="login-logout">
+        <% if(locals.loggedIn){%>
+            <div>Sveiki <span><%= user.name %></span>, <a href="/logout">Atsijungti <img alt="logout" src="../../assets/logout.png"/></a></div>
+        <%} else {%>
+            <div><a href="/login">Prisijunkite <img alt="login" src="../../assets/login.png"/></a></div>
+        <%}%>
+    </div>
+<h1 class="title">Prisijungimas</h1>
+<!--User login-->
+<div class="login">
+    <% if(!locals.loggedIn){%>
+    <div class="signup">
+        <form action="/login" method="post">
+            <div class="error">
+                <% if(locals.error){%>
+                <div><%= locals.error %></div>
+                <%}%>
+            </div>
+            <label class="paragraph">Vardas</label>
+            <input type="text" name="name" placeholder="Prisijungimo vardas" autocomplete="off" autofocus>
+            <label class="paragraph">Slaptažodis</label>
+            <div class="password-input">
+                <input type="password" name="password" placeholder="Slaptažodis" autocomplete="off">
+                <img src="../../assets/closed_eye.png" alt="password_eye"/>
+            </div>
+            <input class="login-button" type="submit" value="Prisijungti">
+        </form>
+        <a href="/register"><button class="login-button">Registruotis</button></a>
+    </div>
+    <div id="signup-message">
+        <p><span>Pastaba!</span> Mokomaisiais tikslais, kad parodyti, kaip pritaikyta šioje svetainėje PostGre SQL duomenų bazė. 
+        Yra sukurti 2 vartotojai, kurie turi savo individualius užrašus, galite prisijungti apačioje jų prisijungimo 
+        duomenimis arba galite užsiregistuoti savo vartotoją. Kurti užrašus, kurie išliks duomenų bazėje, juos galėsite
+        pasiekti kitais prisijungimo kartais.<br/><br/>Prisijungimo Vardas: <span>Tomas</span><br/>
+        Slaptažodis: <span>123456</span><br/><br/>Prisijungimo Vardas: <span>SQL15</span><br/>Slaptažodis: <span>programavimas</span></p>
+    </div>
+    <%} else {%>
+        <div class="login-check"><span><%= user.name %></span> jau esate prisijungęs!</div>
+    <%}%>
+</div>
+<%- include("./partials/footer.ejs") %>

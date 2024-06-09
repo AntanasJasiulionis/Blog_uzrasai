@@ -1,0 +1,34 @@
+<%- include("./partials/header.ejs") %>
+<% if(!locals.loggedIn && locals.message){%>
+    <div id="important-message">
+        <p><span>Pastaba!</span> Užrašai yra saugojami laikinoje atmintyje. Norėdami išsaugoti užrašus <span>PRISIJUNKITE</span> arba <span>UŽSIREGISTRUOKITE</span></p>
+        <img alt="cancel" src="../../assets/cancel.svg"/>
+    </div>
+    <%}%>
+    <!--User login, logout-->
+    <div class="login-logout">
+        <% if(locals.loggedIn){%>
+            <div>Sveiki <span><%= user.name %></span>, <a href="/logout">Atsijungti <img alt="logout" src="../../assets/logout.png"/></a></div>
+        <%} else {%>
+            <div><a href="/login">Prisijunkite <img alt="login" src="../../assets/login.png"/></a></div>
+        <%}%>
+    </div>
+    <h1 class="title">Mano tinklaraštijos užrašai</h1>
+    <div class="posts">
+        <div>
+            <% if(locals.blogPosts && locals.blogPosts != "") { %>
+                <ul>
+                    <% blogPosts.forEach((post) => { %>
+                        <li>
+                            <a href="/post/<%= post.id %>"><%= post.title %></a>
+                            <div class="created-name-date"><p>Sukurta: <span><%= post.date %></span>, <span><%= post.user %></span></p></div>
+                        </li>
+                <% }); %>
+                </ul>
+            <%} else {%>
+            <p class="paragraph">Užrašų nėra</p>
+            <%}%>
+        </div>
+        <a href="/create"><button class="button">Sukurti postą</button></a>
+    </div>
+<%- include("./partials/footer.ejs") %>
