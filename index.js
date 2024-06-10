@@ -211,10 +211,10 @@ app.post("/login", async (req, res) => {
     /*If user inputs name and password*/
     if(!req.body.name){
         errorMessage = "Įveskite prisijungimo vardą";
-        res.redirect("/login");
+        res.status(404).redirect("/login");
     } else if (!req.body.password) {
         errorMessage = "Įveskite slaptažodį";
-        res.redirect("/login");
+        res.status(404).redirect("/login");
     } else {
         errorMessage = null;
         const name = req.body.name;
@@ -236,18 +236,18 @@ app.post("/login", async (req, res) => {
                                 if (error) {
                                     console.log(error);
                                 } else {
-                                    res.redirect("/");
+                                    res.status(200).redirect("/");
                                 }
                             });
                         } else {
                             errorMessage = "Neteisingas slaptažodis"
-                            res.redirect("/login");
+                            res.status(401).redirect("/login");
                         }
                     }
                 });
             } else {
                 errorMessage = "Tokio vartotojo nėra"
-                res.redirect("/login");
+                res.status(401).redirect("/login");
             }
         } catch (error) {
             console.log(error);
@@ -262,10 +262,10 @@ app.get("/register", (req, res) => {
 app.post("/register", async (req, res) => {
     if(!req.body.name){
         errorMessage = "Įveskite prisijungimo vardą";
-        res.redirect("/register");
+        res.status(404).redirect("/register");
     } else if (!req.body.password) {
         errorMessage = "Įveskite slaptažodį";
-        res.redirect("/register");
+        res.status(404).redirect("/register");
     } else {
         errorMessage = null;
         const name = req.body.name;
@@ -286,14 +286,14 @@ app.post("/register", async (req, res) => {
                             if (error) {
                                 console.log(error);
                             } else {
-                                res.redirect("/");
+                                res.status(201).redirect("/");
                             }
                         });
                     }
                 });
             } else {
                 errorMessage = `Toks vartotojas ${name} jau yra`
-                res.redirect("/register");
+                res.status(401).redirect("/register");
             }
         } catch (error) {
             console.log(error);
@@ -310,10 +310,10 @@ app.get("/logout", (req, res) => {
             if (error) {
                 console.log(error);
             }
-            res.redirect("/");
+            res.status(200).redirect("/");
         });
     } else {
-        res.redirect("/");
+        res.status(401).redirect("/");
     }
 });
 

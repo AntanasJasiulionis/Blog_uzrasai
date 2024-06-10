@@ -22,7 +22,7 @@
     font-family: "System", cursive;
 }
 .posts ul li a, .review h1, .confirmation_box span, .created-name-date span, #signup-message span, .login .login-check span {
-    font-family: "Tex-bold", cursive;
+    font-family: "Text-bold", cursive;
 }
 .create_post .input, .review p, .confirmation_box, .create_post a, footer, .created-name-date, .signup form input[name="name"], .signup form input[name="password"], #signup-message, .login .login-check {
     font-family: "Text", cursive;
